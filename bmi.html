@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI</title>
+</head>
+<body>
+  <label>Masukkan Berat (kg)</label>
+  <input type="number" id="inputBerat"><br>
+  <label>Masukkan Tinggi (m)</label>
+  <input type="number" id="inputTinggi"><br>
+  <button onclick="cekBMI()">Cek BMI</button>
+  <p id="hasil"></p>
+
+<script>
+    function cekBMI(){
+        const berat = Number(document.getElementById("inputBerat").value);
+        const tinggi = Number(document.getElementById("inputTinggi").value);
+        
+        let bmi = berat / (tinggi * tinggi);
+        let predikat = "";
+
+        if (bmi < 18.5) {
+            predikat = "kurus";
+        } else if (bmi <= 24.9) {
+            predikat = "normal";
+        } else if (bmi <= 50) {
+            predikat = "gemuk";
+        } else {
+            predikat = "obesitas";
+        }
+
+        document.getElementById("hasil").textContent = `BMI Anda: ${bmi.toFixed(2)} (${predikat})`;
+    }
+</script>
+</body>
+</html>
